@@ -106,10 +106,10 @@ public class FinancialTracker {
         // The new deposit should be added to the `transactions` ArrayList.
 
         System.out.println("Enter the date of deposit(yyy-MM-dd):");
-        String date = scanner.nextLine();
+        LocalDate date = LocalDate.parse(scanner.nextLine());
 
         System.out.println("Enter the time of deposit(HH:mm:ss):");
-        String time = scanner.nextLine();
+        LocalTime time = LocalTime.parse(scanner.nextLine());
 
         System.out.println("Enter the description of deposit");
         String description = scanner.nextLine();
@@ -120,9 +120,7 @@ public class FinancialTracker {
         System.out.println("Enter the amount of deposit");
         Double amount = scanner.nextDouble();
 
-        try {
-            LocalDate localDate = LocalDate.parse(date);
-            LocalTime localTime = LocalTime.parse(time);
+            try {
 
             if(vendor.trim().isEmpty()) {
                 System.out.println("Vendor can not be emty");
@@ -137,11 +135,18 @@ public class FinancialTracker {
                 System.out.println("Amount should be bigger than 0 ");
                 return;
             }
+            Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
+            transactions.add(newTransaction);
+            System.out.println("Deposit added succesfully.");
 
-        }
+        } catch (Exception e) {
+                System.out.println("Invaled date or time format. Try again");
 
-
+            }
     }
+
+
+
 
     private static void addPayment(Scanner scanner) {
         // This method should prompt the user to enter the date, time, description, vendor, and amount of a payment.
