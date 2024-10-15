@@ -1,8 +1,12 @@
 package com.pluralsight;
 
+import javax.swing.text.DateFormatter;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.Scanner;
 
 public class FinancialTracker {
@@ -60,6 +64,8 @@ public class FinancialTracker {
         // For example: 2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50
         // After reading all the transactions, the file should be closed.
         // If any errors occur, an appropriate error message should be displayed.
+
+
     }
 
     private static void addDeposit(Scanner scanner) {
@@ -68,6 +74,7 @@ public class FinancialTracker {
         // The amount should be a positive number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new deposit should be added to the `transactions` ArrayList.
+        
     }
 
     private static void addPayment(Scanner scanner) {
