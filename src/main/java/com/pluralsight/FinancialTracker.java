@@ -118,7 +118,27 @@ public class FinancialTracker {
         String vendor = scanner.nextLine();
 
         System.out.println("Enter the amount of deposit");
-        Double amount = scanner.nextDouble()
+        Double amount = scanner.nextDouble();
+
+        try {
+            LocalDate localDate = LocalDate.parse(date);
+            LocalTime localTime = LocalTime.parse(time);
+
+            if(vendor.trim().isEmpty()) {
+                System.out.println("Vendor can not be emty");
+                return;
+            }
+
+            if (description.trim().isEmpty()) {
+                System.out.println("Description can not be emty");
+                return;
+            }
+            if (amount<=0) {
+                System.out.println("Amount should be bigger than 0 ");
+                return;
+            }
+
+        }
 
 
     }
