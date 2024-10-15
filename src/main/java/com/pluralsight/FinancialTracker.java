@@ -66,13 +66,26 @@ public class FinancialTracker {
         // After reading all the transactions, the file should be closed.
         // If any errors occur, an appropriate error message should be displayed.
 
-
+        
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String input;
             while ((input = reader.readLine())!=null) {
                 String[] parts = input.split("\\|");
 
-           
+                LocalDate date = LocalDate.parse(parts[0]);
+                LocalTime time = LocalTime.parse(parts[1]);
+                String description = parts[2];
+                String vendor = parts[3];
+                double price = Double.parseDouble(parts[4]);
+
+                transactions.add(new Transaction(date, time , description,vendor,price));
+            }
+
+            reader.close();
+
+
+
+
     }
 
     private static void addDeposit(Scanner scanner) {
