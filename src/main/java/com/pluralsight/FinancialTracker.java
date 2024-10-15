@@ -110,7 +110,16 @@ public class FinancialTracker {
 
         System.out.println("Enter the time of deposit(HH:mm:ss):");
         String time = scanner.nextLine();
-        
+
+        System.out.println("Enter the description of deposit");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter the vendor of the deposit:");
+        String vendor = scanner.nextLine();
+
+        System.out.println("Enter the amount of deposit");
+        Double amount = scanner.nextDouble()
+
 
     }
 
