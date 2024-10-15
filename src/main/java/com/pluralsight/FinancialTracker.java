@@ -66,7 +66,7 @@ public class FinancialTracker {
         // After reading all the transactions, the file should be closed.
         // If any errors occur, an appropriate error message should be displayed.
 
-        
+        try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String input;
             while ((input = reader.readLine())!=null) {
@@ -85,7 +85,17 @@ public class FinancialTracker {
 
 
 
+        } catch (Exception e) {
+            try {
+                System.err.println("Related file can not exist.");
+                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 
+            } catch (Exception ex) {
+                System.err.println("File could not created.");
+
+            }
+
+        }
     }
 
     private static void addDeposit(Scanner scanner) {
