@@ -105,6 +105,13 @@ public class FinancialTracker {
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new deposit should be added to the `transactions` ArrayList.
 
+        System.out.println("Enter the date of deposit(yyy-MM-dd):");
+        String date = scanner.nextLine();
+
+        System.out.println("Enter the time of deposit(HH:mm:ss):");
+        String time = scanner.nextLine();
+        
+
     }
 
     private static void addPayment(Scanner scanner) {
