@@ -259,6 +259,12 @@ public class FinancialTracker {
     private static void displayPayments() {
         // This method should display a table of all payments in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
+        System.out.println("Date|Time|Description|Vendor|Amount");
+        for(Transaction table : transactions) {
+            if(table.getAmount() < 0) {
+                System.out.println(table);
+            }
+        }
     }
 
     private static void reportsMenu(Scanner scanner) {
