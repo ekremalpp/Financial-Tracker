@@ -154,6 +154,23 @@ public class FinancialTracker {
         // The amount received should be a positive number then transformed to a negative number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new payment should be added to the `transactions` ArrayList.
+
+        System.out.println("Enter the date of payment(yyy-MM-dd):");
+        LocalDate date = LocalDate.parse(scanner.nextLine());
+
+        System.out.println("Enter the time of payment(HH:mm:ss):");
+        LocalTime time = LocalTime.parse(scanner.nextLine());
+
+        System.out.println("Enter the description of payment");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter the vendor of the payment:");
+        String vendor = scanner.nextLine();
+
+        System.out.println("Enter the amount of payment(positive number): ");
+        Double amount = scanner.nextDouble();
+
+
     }
 
     private static void ledgerMenu(Scanner scanner) {
