@@ -67,7 +67,7 @@ public class FinancialTracker {
         // If any errors occur, an appropriate error message should be displayed.
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String input;
             while ((input = reader.readLine()) != null) {
                 String[] parts = input.split("\\|");
@@ -87,7 +87,7 @@ public class FinancialTracker {
         } catch (Exception e) {
             try {
                 System.err.println("Related file can not exist.");
-                BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 
             } catch (Exception ex) {
                 System.err.println("File could not created.");
@@ -135,10 +135,10 @@ public class FinancialTracker {
                 return;
             }
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
-            transactions.add(newTransaction);
+             transactions.add(newTransaction);
            try(BufferedWriter bufferedWriter =  new BufferedWriter(new FileWriter(FILE_NAME, true))) {
 
-                bufferedWriter.write(transactions.toString());
+                bufferedWriter.write(newTransaction.toString());
                 bufferedWriter.newLine();
 
                System.out.println("Deposit added successfully ");
@@ -194,6 +194,12 @@ public class FinancialTracker {
 
             Transaction newTransaction = new Transaction(date, time, description, vendor, negativeAmount);
             transactions.add(newTransaction);
+
+            try( BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+                bufferedWriter.write(newTransaction.toString());
+                bufferedWriter.newLine();
+            }
+
             System.out.println("Payment added successfully:");
 
         } catch (Exception e) {
