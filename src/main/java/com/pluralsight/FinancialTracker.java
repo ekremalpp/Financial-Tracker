@@ -170,19 +170,30 @@ public class FinancialTracker {
         System.out.println("Enter the amount of payment(positive number): ");
         Double amount = scanner.nextDouble();
 
-        if(vendor.trim().isEmpty()) {
-            System.out.println("Vendor can not be emty");
-            return;
-        }
+        try {
+            if (vendor.trim().isEmpty()) {
+                System.out.println("Vendor can not be emty");
+                return;
+            }
 
-        if (description.trim().isEmpty()) {
-            System.out.println("Description can not be emty");
-            return;
-        }
-        if (amount<=0) {
-            System.out.println("Amount should be bigger than 0 ");
-            return;
+            if (description.trim().isEmpty()) {
+                System.out.println("Description can not be emty");
+                return;
+            }
+            if (amount <= 0) {
+                System.out.println("Amount should be bigger than 0 ");
+                return;
+            }
 
+            double negativeAmount = -amount;
+
+            Transaction newTransaction = new Transaction(date, time, description, vendor, negativeAmount);
+            transactions.add(newTransaction);
+            System.out.println("Payment added succesfully:");
+
+        }catch (Exception e){
+            System.out.println("Invalid date or time format. Please try again.");
+        }
 
     }
 
