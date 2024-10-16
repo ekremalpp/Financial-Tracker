@@ -136,7 +136,14 @@ public class FinancialTracker {
             }
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
             transactions.add(newTransaction);
-            System.out.println("Deposit added successfully.");
+           try(BufferedWriter bufferedWriter =  new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+
+                bufferedWriter.write(transactions.toString());
+                bufferedWriter.newLine();
+
+               System.out.println("Deposit added successfully ");
+
+           }
 
         } catch (Exception e) {
             System.out.println("Invalid date or time format. Try again");
