@@ -236,11 +236,13 @@ public class FinancialTracker {
     private static void displayLedger() {
         // This method should display a table of all transactions in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
-        for (Transaction table : transactions) {
-            System.out.println(table.getDate() + "|" + table.getTime() + "|" + table.getDescription() + "|" + table.getVendor() + "|" + table.getAmount());
+        System.out.println("Date|Time|Description|Vendor|Amount");
+        for(Transaction table : transactions) {
+            System.out.println(transactions);
+        }
 
         }
-    }
+
 
 
     private static void displayDeposits() {
