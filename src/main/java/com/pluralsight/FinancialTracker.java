@@ -170,6 +170,19 @@ public class FinancialTracker {
         System.out.println("Enter the amount of payment(positive number): ");
         Double amount = scanner.nextDouble();
 
+        if(vendor.trim().isEmpty()) {
+            System.out.println("Vendor can not be emty");
+            return;
+        }
+
+        if (description.trim().isEmpty()) {
+            System.out.println("Description can not be emty");
+            return;
+        }
+        if (amount<=0) {
+            System.out.println("Amount should be bigger than 0 ");
+            return;
+
 
     }
 
