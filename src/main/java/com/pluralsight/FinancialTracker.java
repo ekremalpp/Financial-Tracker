@@ -67,7 +67,7 @@ public class FinancialTracker {
         // If any errors occur, an appropriate error message should be displayed.
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
             String input;
             while ((input = reader.readLine())!=null) {
                 String[] parts = input.split("\\|");
@@ -88,7 +88,7 @@ public class FinancialTracker {
         } catch (Exception e) {
             try {
                 System.err.println("Related file can not exist.");
-                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME));
 
             } catch (Exception ex) {
                 System.err.println("File could not created.");
@@ -128,7 +128,7 @@ public class FinancialTracker {
             }
 
             if (description.trim().isEmpty()) {
-                System.out.println("Description can not be emty");
+                System.out.println("Description can not be empty");
                 return;
             }
             if (amount<=0) {
@@ -137,12 +137,13 @@ public class FinancialTracker {
             }
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
             transactions.add(newTransaction);
-            System.out.println("Deposit added succesfully.");
+            System.out.println("Deposit added successfully.");
 
         } catch (Exception e) {
-                System.out.println("Invaled date or time format. Try again");
+                System.out.println("Invalid date or time format. Try again");
 
             }
+
     }
 
 
@@ -189,7 +190,7 @@ public class FinancialTracker {
 
             Transaction newTransaction = new Transaction(date, time, description, vendor, negativeAmount);
             transactions.add(newTransaction);
-            System.out.println("Payment added succesfully:");
+            System.out.println("Payment added successfully:");
 
         }catch (Exception e){
             System.out.println("Invalid date or time format. Please try again.");
@@ -235,7 +236,12 @@ public class FinancialTracker {
     private static void displayLedger() {
         // This method should display a table of all transactions in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
+        for (Transaction table : transactions) {
+            System.out.println(table.getDate() + "|" + table.getTime() + "|" + table.getDescription() + "|" + table.getVendor() + "|" + table.getAmount());
+
+        }
     }
+
 
     private static void displayDeposits() {
         // This method should display a table of all deposits in the `transactions` ArrayList.
