@@ -105,11 +105,11 @@ public class FinancialTracker {
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new deposit should be added to the `transactions` ArrayList.
 
-        System.out.println("Enter the date of deposit(yyy-MM-dd):");
-        LocalDate date = LocalDate.parse(scanner.nextLine());
+        System.out.println("Enter the date of deposit(yyyy-MM-dd):");
+        LocalDate date = LocalDate.parse(scanner.nextLine(),DATE_FORMATTER);
 
         System.out.println("Enter the time of deposit(HH:mm:ss):");
-        LocalTime time = LocalTime.parse(scanner.nextLine());
+        LocalTime time = LocalTime.parse(scanner.nextLine(),TIME_FORMATTER);
 
         System.out.println("Enter the description of deposit");
         String description = scanner.nextLine();
@@ -314,6 +314,20 @@ public class FinancialTracker {
         // The method loops through the transactions list and checks each transaction's date against the date range.
         // Transactions that fall within the date range are printed to the console.
         // If no transactions fall within the date range, the method prints a message indicating that there are no results.
+
+        boolean results = false;
+        System.out.println("Filtered Transactions:");
+        System.out.println("Date|Time|Description|Vendor|Amound");
+
+        for(Transaction table : transactions) {
+            if(!table.getDate().isBefore(startDate) && !table.getDate().isAfter(endDate))  {
+                System.out.println(table.getDate() + "|" + table.getTime() +"|" + table.getDescription() + "|" +table.getVendor() +"|" +table.getAmount());
+                results = true;
+            }
+        }
+        if(!results) {
+            System.out.println("No transactions found in the given date range");
+        }
     }
 
     private static void filterTransactionsByVendor(String vendor) {
