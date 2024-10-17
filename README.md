@@ -65,8 +65,10 @@ Follow these steps to get your application running within IntelliJ IDEA:
 ## Demo
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
+- added main menu's screen![main-menu.JPG](imgs%2Fmain-menu.JPG)
+- addDeposit method has been demonstrated.![addDeposit.JPG](imgs%2FaddDeposit.JPG)
+- addPayment method has been demonstrated.![addPayment.JPG](imgs%2FaddPayment.JPG)
 
-![Application Screenshot](path/to/your/screenshot.png)
 
 ## Future Work
 
@@ -81,11 +83,15 @@ Integrate with online banking APIs to help users automatically track their expen
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
 -https://stackoverflow.com/questions/136419/get-integer-value-of-the-current-year-in-java
+
 -https://yearup.brightspace.com/d2l/home/8605
+
 -https://www.w3schools.com/java
+
+-https://www.baeldung.com/java-current-month-start-date#:~:text=Using%20the%20LocalDate%20Class,date%20with%20the%20day%20altered.
 ## Team Members
 
--  Ekrem ALP  creator thr project.
+-  Ekrem ALP  creator the project.
 
 
 ## Thanks
@@ -94,3 +100,4 @@ Express gratitude towards those who provided help, guidance, or resources:
 
 - Thank you to [Raymond] for continuous support and guidance.
 - A special thanks to Yigit Demirici and Emre AKARSU their dedication and teamwork.
+- Another special thanks to Enes YILMAZ && Talha Bilmen for helping me about presentation section of my project.

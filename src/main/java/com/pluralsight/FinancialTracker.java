@@ -117,7 +117,7 @@ public class FinancialTracker {
         try {
 
             if (vendor.trim().isEmpty()) {
-                System.out.println("Vendor can not be emty");
+                System.out.println("Vendor can not be empty");
                 return;
             }
 
@@ -172,12 +172,12 @@ public class FinancialTracker {
 
         try {
             if (vendor.trim().isEmpty()) {
-                System.out.println("Vendor can not be emty");
+                System.out.println("Vendor can not be empty");
                 return;
             }
 
             if (description.trim().isEmpty()) {
-                System.out.println("Description can not be emty");
+                System.out.println("Description can not be empty");
                 return;
             }
             if (amount <= 0) {
