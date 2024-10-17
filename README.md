@@ -12,6 +12,33 @@ track financial operations.
 
 
 ## User Stories
+-As a user, I want to have the option to exit the application easily,
+so that I can leave whenever I choose.
+
+-As a user, I want to view a summary of deposits and payments,
+so that I can assess my overall financial health.
+
+-As a user, I want to display all deposits separately from payments in the ledger, 
+so that I can easily differentiate between my income and expenses.
+
+-As a user, I want to view my transaction history
+so that I can see all my financial activities.
+
+-As a user, I want to set a budget for different categories 
+so that I can manage my spending more effectively.
+
+-As a user, I want to categorize my transactions,
+so that I can track my spending in different areas.
+
+-As a user, I want to back up my transaction data, 
+so that I can prevent data loss
+-As a user, I want to search for specific transactions, 
+so that I can quickly find relevant financial records.
+
+-As a user, I want to view a summary of transactions by week,
+so that I can track my spending patterns over time.
+
+
 
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
