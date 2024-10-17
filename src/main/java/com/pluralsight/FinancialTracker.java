@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Scanner;
-
 public class FinancialTracker {
 
     private static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
@@ -81,21 +80,15 @@ public class FinancialTracker {
                 transactions.add(new Transaction(date, time, description, vendor, price));
             }
 
-            reader.close();
-
 
         } catch (Exception e) {
-            try {
-                System.err.println("Related file can not exist.");
-                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-
-            } catch (Exception ex) {
-                System.err.println("File could not created.");
+            System.err.println("Related file can not exist.");
+                e.printStackTrace();
 
             }
 
         }
-    }
+
 
     private static void addDeposit(Scanner scanner) {
         // This method should prompt the user to enter the date, time, description, vendor, and amount of a deposit.
@@ -260,7 +253,7 @@ public class FinancialTracker {
         System.out.println("Date|Time|Description|Vendor|Amount");
         for (Transaction table : transactions) {
             if (table.getAmount() > 0) {
-                System.out.println(table);
+                System.out.println(table.toString());
             }
         }
     }
@@ -271,7 +264,7 @@ public class FinancialTracker {
         System.out.println("Date|Time|Description|Vendor|Amount");
         for (Transaction table : transactions) {
             if (table.getAmount() < 0) {
-                System.out.println(table);
+                System.out.println(table.toString());
             }
         }
     }
@@ -292,6 +285,7 @@ public class FinancialTracker {
 
             switch (input) {
                 case "1":
+
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
                 case "2":
