@@ -320,6 +320,7 @@ public class FinancialTracker {
                     // including the date, time, description, vendor, and amount for each transaction.
                     LocalDate firstDayOfPreviousYear = now.minusYears(1).with(TemporalAdjusters.firstDayOfYear());
                     LocalDate lastDayOfPreviousYear = now.minusYears(1).with(TemporalAdjusters.lastDayOfYear());
+                    filterTransactionsByDate(firstDayOfPreviousYear, lastDayOfPreviousYear);
                     break;
 
                 case "5":

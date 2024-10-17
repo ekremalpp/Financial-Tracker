@@ -1,12 +1,18 @@
 # Project Title
+Financial Tracker Capstone
 
 ## Description of the Project
+Financial Tracker is a Java application whose purpose is to track all financial transactions of the user. 
+This application gives users an easy opportunity to deposit and add payments, review their transaction history,
+create reports of various types, and was designed to be used by everybody easily to make it simpler for any user to
+track financial operations.
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
 
-![Class Diagram](path/to/your/class_diagram.png)
+
+
 
 ## User Stories
+
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
