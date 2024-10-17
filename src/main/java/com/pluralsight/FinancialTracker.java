@@ -6,9 +6,11 @@ import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Scanner;
+
 public class FinancialTracker {
 
     private static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
@@ -83,11 +85,11 @@ public class FinancialTracker {
 
         } catch (Exception e) {
             System.err.println("Related file can not exist.");
-                e.printStackTrace();
-
-            }
+            e.printStackTrace();
 
         }
+
+    }
 
 
     private static void addDeposit(Scanner scanner) {
@@ -128,15 +130,15 @@ public class FinancialTracker {
                 return;
             }
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
-             transactions.add(newTransaction);
-           try(BufferedWriter bufferedWriter =  new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            transactions.add(newTransaction);
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
 
                 bufferedWriter.write(newTransaction.toString());
                 bufferedWriter.newLine();
 
-               System.out.println("Deposit added successfully ");
+                System.out.println("Deposit added successfully ");
 
-           }
+            }
 
         } catch (Exception e) {
             System.out.println("Invalid date or time format. Try again");
@@ -188,7 +190,7 @@ public class FinancialTracker {
             Transaction newTransaction = new Transaction(date, time, description, vendor, negativeAmount);
             transactions.add(newTransaction);
 
-            try( BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
                 bufferedWriter.write(newTransaction.toString());
                 bufferedWriter.newLine();
             }
@@ -283,26 +285,54 @@ public class FinancialTracker {
 
             String input = scanner.nextLine().trim();
 
+            LocalDate now = LocalDate.now();
             switch (input) {
                 case "1":
 
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
+
+                    LocalDate startDay = now.with(TemporalAdjusters.firstDayOfMonth());
+                    LocalDate endDay = now;
+
+                    filterTransactionsByDate(startDay, endDay);
+                    break;
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, time, description, vendor, and amount for each transaction.
+
+                    LocalDate firstDayOfMinusMonth = now.minusMonths(1).with(TemporalAdjusters.firstDayOfMonth());
+                    LocalDate lastDayOfMinusMonth = now.minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+                    filterTransactionsByDate(firstDayOfMinusMonth,lastDayOfMinusMonth);
+                    break;
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, time, description, vendor, and amount for each transaction.
 
+                    LocalDate firstDayOfCurrentYear = now.with(TemporalAdjusters.firstDayOfYear());
+                    LocalDate lastDayOfCurrrentYear = now.with(TemporalAdjusters.lastDayOfYear());
+                    filterTransactionsByDate(firstDayOfCurrentYear, lastDayOfCurrrentYear);
+                    break;
+
+
                 case "4":
                     // Generate a report for all transactions within the previous year,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    LocalDate firstDayOfPreviousYear = now.minusYears(1).with(TemporalAdjusters.firstDayOfYear());
+                    LocalDate lastDayOfPreviousYear = now.minusYears(1).with(TemporalAdjusters.lastDayOfYear());
+                    break;
+
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, time, description, vendor, and amount for each transaction.
+                    System.out.println("Please Enter Name Of Vendor: ");
+                    String vendor = scanner.nextLine();
+                    filterTransactionsByVendor(vendor);
+                    break;
+
                 case "0":
                     running = false;
+                    break;
                 default:
                     System.out.println("Invalid option");
                     break;
@@ -324,7 +354,7 @@ public class FinancialTracker {
 
         for (Transaction table : transactions) {
             if (!table.getDate().isBefore(startDate) && !table.getDate().isAfter(endDate)) {
-                System.out.println(table.getDate() + "|" + table.getTime() + "|" + table.getDescription() + "|" + table.getVendor() + "|" + table.getAmount());
+                System.out.println(table);
                 results = true;
             }
         }
