@@ -49,7 +49,7 @@ public class FinancialTracker {
                     running = false;
                     break;
                 default:
-                    System.out.println("Invalid option");
+                    System.out.println("Thank you for choosing us ");
                     break;
             }
         }
@@ -126,7 +126,7 @@ public class FinancialTracker {
                 return;
             }
             if (amount <= 0) {
-                System.out.println("Amount should be bigger than 0 ");
+                System.out.println("Amount must be bigger than 0 ");
                 return;
             }
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
@@ -232,7 +232,7 @@ public class FinancialTracker {
                 case "H":
                     running = false;
                 default:
-                    System.out.println("Invalid option");
+                    System.out.println("invalid option");
                     break;
             }
         }
@@ -301,7 +301,7 @@ public class FinancialTracker {
                     // Generate a report for all transactions within the previous month,
                     // including the date, time, description, vendor, and amount for each transaction.
 
-                    LocalDate firstDayOfMinusMonth = now.minusMonths(1).with(TemporalAdjusters.firstDayOfMonth());
+                    LocalDate firstDayOfMinusMonth = now.minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
                     LocalDate lastDayOfMinusMonth = now.minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
                     filterTransactionsByDate(firstDayOfMinusMonth,lastDayOfMinusMonth);
                     break;
@@ -351,7 +351,7 @@ public class FinancialTracker {
 
         boolean results = false;
         System.out.println("Filtered Transactions:");
-        System.out.println("Date|Time|Description|Vendor|Amound");
+        System.out.println("Date|Time|Description|Vendor|Amount");
 
         for (Transaction table : transactions) {
             if (!table.getDate().isBefore(startDate) && !table.getDate().isAfter(endDate)) {

@@ -76,7 +76,7 @@ Outline potential future enhancements or functionalities you might consider addi
 
 - Additional feature to be developed.
 Integrate with online banking APIs to help users automatically track their expenses.
-- Improvement of current functionalities.
+
 
 ## Resources
 
@@ -100,4 +100,4 @@ Express gratitude towards those who provided help, guidance, or resources:
 
 - Thank you to [Raymond] for continuous support and guidance.
 - A special thanks to Yigit Demirici and Emre AKARSU their dedication and teamwork.
-- Another special thanks to Enes YILMAZ && Talha Bilmen for helping me about presentation section of my project.
+
