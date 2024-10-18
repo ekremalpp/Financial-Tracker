@@ -12,8 +12,6 @@ track financial operations.
 
 
 ## User Stories
--As a user, I want to have the option to exit the application easily,
-so that I can leave whenever I choose.
 
 -As a user, I want to view a summary of deposits and payments,
 so that I can assess my overall financial health.
@@ -37,6 +35,8 @@ so that I can quickly find relevant financial records.
 
 -As a user, I want to view a summary of transactions by week,
 so that I can track my spending patterns over time.
+-As a user, I want to have the option to exit the application easily,
+so that I can leave whenever I choose.
 
 ## Setup
 
